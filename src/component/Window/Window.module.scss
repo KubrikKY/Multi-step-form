@@ -2,7 +2,10 @@
 
 .Window {
   width: 80%;
-  height: 500px;
+  height: 550px;
   border-radius: 20px;
+  padding: 10px;
+  display: grid;
+  grid-template-columns: 40% 60%;
   background-color: $White;
 }

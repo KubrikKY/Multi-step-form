@@ -1,0 +1,45 @@
+@import '../../index';
+
+.Chapter {
+  display: flex;
+  flex-direction: column;
+  color: $TextStep;
+  padding: 40px 30px;
+  font-size: 12px;
+
+  h1 {
+    font-size: 28px;
+    font-weight: 700;
+    margin-bottom: 20px;
+  }
+
+  p {
+    margin-bottom: 20px;
+  }
+
+  p,
+  input::placeholder {
+    color: $DiscPlace;
+  }
+
+  button {
+    width: 70px;
+    height: 30px;
+    border-radius: 10px;
+  }
+
+  .nextStep {
+    background-color: $TextStep;
+    color: #fff;
+  }
+
+  .goBack {
+    color: $DiscPlace;
+  }
+
+  .navButtons {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+}
