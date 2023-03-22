@@ -26,6 +26,15 @@ function App() {
     setResultForm({ ...newResultForm });
   };
 
+  const prices = {
+    Arcade: 9,
+    Advanced: 12,
+    Pro: 15,
+    'Online service': 1,
+    'Larger storage': 2,
+    'Customizable Profile': 2,
+  };
+
   const steps = [
     {
       step: 1,
@@ -56,31 +65,38 @@ function App() {
           type: 'radio',
           name: 'Arcade',
           price: '$9/mo',
-          value: 9,
         },
         { type: 'radio', name: 'Advanced', price: '$12/mo', value: 12 },
         { type: 'radio', name: 'Pro', price: '$15/mo', value: 15 },
         {
           type: 'switchToggle',
+          typeName: 'checkbox',
           name: 'planDuration',
+
           options: ['Monthly', 'Yearly'],
         },
       ],
     },
     {
       step: 3,
-      name: 'add-ons',
+      name: 'add ons',
       title: 'Pick add-ons',
       description: 'Add-ons help enhance your gaming experience.',
       inputs: [
         {
           type: 'checkbox',
-          name: 'additions',
-          options: [
-            { name: 'Online service', price: '+$1/mo', value: 1 },
-            { name: 'Larger storage', price: '+$2/mo', value: 2 },
-            { name: 'Customizable Profile', price: '+$2/mo', value: 2 },
-          ],
+          name: 'Online service',
+          price: '+$1/mo',
+        },
+        {
+          type: 'checkbox',
+          name: 'Larger storage',
+          price: '+$2/mo',
+        },
+        {
+          type: 'checkbox',
+          name: 'Customizable Profile',
+          price: '+$2/mo',
         },
       ],
     },
@@ -89,6 +105,17 @@ function App() {
       name: 'summary',
       title: 'Finishing up',
       description: 'Double-check everything looks OK before confirming.',
+      inputs: [
+        {
+          name: 'result',
+          type: 'table',
+          options: [
+            resultForm?.selectPlan,
+            resultForm?.addOns,
+            resultForm?.planduration,
+          ],
+        },
+      ],
     },
   ];
   return (
@@ -101,6 +128,7 @@ function App() {
           currentStep={currentStep}
           stateValue={resultForm}
           setStateValue={setFormHandler}
+          prices={prices}
         />
       </Window>
     </div>

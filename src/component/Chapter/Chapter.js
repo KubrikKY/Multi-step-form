@@ -12,6 +12,7 @@ function Chapter(props) {
         data={selectData}
         setStateValue={props.setStateValue}
         stateValue={props.stateValue}
+        prices={props.prices}
       />
       <div className={classes.navButtons}>
         {props.currentStep !== 0 && (
