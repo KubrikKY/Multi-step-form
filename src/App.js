@@ -8,16 +8,20 @@ import { useState } from 'react';
 
 function App() {
   const [currentStep, setCurrentStep] = useState(0);
+  const [visitStep, setVisitStep] = useState([0]);
   const [resultForm, setResultForm] = useState({});
 
   console.log(resultForm);
 
   const nextStepHandler = (step) => {
+    setVisitStep([...visitStep, currentStep + step]);
     setCurrentStep(currentStep + step);
   };
 
   const selectStepHandler = (step) => {
-    setCurrentStep(step);
+    if (visitStep.includes(step)) {
+      setCurrentStep(step);
+    }
   };
 
   const setFormHandler = (name, value) => {
@@ -137,7 +141,12 @@ function App() {
   return (
     <div className={classes.App}>
       <Window>
-        <Navigation steps={steps} setSelectStep={(i) => selectStepHandler(i)} />
+        <Navigation
+          steps={steps}
+          setSelectStep={(i) => selectStepHandler(i)}
+          currentStep={currentStep}
+          visitStep={visitStep}
+        />
         <Chapter
           steps={steps}
           selectStep={(i) => nextStepHandler(i)}

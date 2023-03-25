@@ -11,6 +11,7 @@ function InputText({ input, nameInput, valueInput }) {
         placeholder={input.placeholder}
         name={nameInput}
         value={valueInput}
+        required
       />
     </label>
   );

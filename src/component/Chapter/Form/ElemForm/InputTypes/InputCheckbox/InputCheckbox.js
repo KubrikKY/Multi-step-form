@@ -12,7 +12,6 @@ function InputCheckbox({
 }) {
   if (!stateValue[name]) {
     setStateValue(name, []);
-    return;
   }
 
   let clsCheckbox = [classes.checkbox];

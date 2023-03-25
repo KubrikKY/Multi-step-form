@@ -1,13 +1,17 @@
 import React from 'react';
 import classes from './Steps.module.scss';
-function Steps({ step, stepName, selectStep, setSelectStep }) {
-  let cls = [classes.stepNum];
+function Steps({ step, stepName, selectStep, setSelectStep, visit }) {
+  let clsNum = [classes.stepNum];
+  let clsStep = [classes.Steps];
   if (selectStep) {
-    cls.push(classes.selectStep);
+    clsNum.push(classes.selectStep);
+  }
+  if (visit) {
+    clsStep.push(classes.visitStep);
   }
   return (
-    <div className={classes.Steps} onClick={setSelectStep}>
-      <div className={cls.join(' ')}>{step}</div>
+    <div className={clsStep.join(' ')} onClick={setSelectStep}>
+      <div className={clsNum.join(' ')}>{step}</div>
       <div className={classes.stepName}>
         <span>
           <h4>STEP {step}</h4>

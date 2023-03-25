@@ -4,7 +4,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-
+  opacity: 0.6;
   color: #fff;
   width: 80%;
   padding: 20px;
@@ -26,5 +26,18 @@
   width: 100%;
   span {
     color: $SubText;
+  }
+}
+
+.selectStep {
+  background-color: $SubText;
+}
+
+.visitStep {
+  cursor: pointer;
+  opacity: 0.9;
+  transition: opacity 0.2s linear;
+  &:hover {
+    opacity: 1;
   }
 }

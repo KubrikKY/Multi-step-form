@@ -11,6 +11,8 @@ function Navigation(props) {
             key={e.step}
             step={e.step}
             stepName={e.name}
+            visit={props.visitStep.includes(i) || undefined}
+            selectStep={props.currentStep === i || undefined}
             setSelectStep={() => props.setSelectStep(i)}
           />
         );

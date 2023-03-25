@@ -23,33 +23,51 @@ function ElemForm({
 
   switch (input.type) {
     case 'text':
+      if (!stateValue[nameInput] && stateValue[nameInput] !== '') {
+        setStateValue(nameInput, '');
+      }
       comp = (
         <InputText
           input={input}
           nameInput={nameInput}
           valueInput={valueInput}
+          stateValue={stateValue}
+          setStateValue={setStateValue}
         />
       );
       break;
     case 'email':
+      if (!stateValue[nameInput] && stateValue[nameInput] !== '') {
+        setStateValue(nameInput, '');
+      }
       comp = (
         <InputText
           input={input}
           nameInput={nameInput}
           valueInput={valueInput}
+          stateValue={stateValue}
+          setStateValue={setStateValue}
         />
       );
       break;
     case 'phone':
+      if (!stateValue[nameInput] && stateValue[nameInput] !== '') {
+        setStateValue(nameInput, '');
+      }
       comp = (
         <InputText
           input={input}
           nameInput={nameInput}
           valueInput={valueInput}
+          stateValue={stateValue}
+          setStateValue={setStateValue}
         />
       );
       break;
     case 'radio':
+      if (!stateValue[name]) {
+        setStateValue(name, input.name);
+      }
       comp = (
         <InputRadio
           stateValue={stateValue}

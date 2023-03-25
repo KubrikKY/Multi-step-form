@@ -4,6 +4,12 @@ import Form from './Form/Form';
 
 function Chapter(props) {
   const selectData = props.steps[props.currentStep];
+
+  const nextStep = (e) => {
+    e.preventDefault();
+    props.selectStep(1);
+  };
+
   return (
     <div className={classes.Chapter}>
       <h1>{selectData.title}</h1>
@@ -15,6 +21,7 @@ function Chapter(props) {
         pricesMonth={props.pricesMonth}
         pricesYear={props.pricesYear}
         selectStepReturn={props.selectStepReturn}
+        nextStep={nextStep}
       />
       <div className={classes.navButtons}>
         {props.currentStep !== 0 && (
@@ -26,12 +33,12 @@ function Chapter(props) {
           </button>
         )}
         {props.currentStep < props.steps.length - 1 && (
-          <button
-            onClick={() => props.selectStep(1)}
+          <input
+            type="submit"
+            form="Form"
             className={classes.nextStep}
-          >
-            Next Step
-          </button>
+            value="Next Step"
+          ></input>
         )}
       </div>
     </div>

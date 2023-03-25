@@ -8,9 +8,9 @@ function Form({
   pricesMonth,
   pricesYear,
   selectStepReturn,
+  nextStep,
 }) {
   const addCheckBoxInState = (checkbox) => {
-    console.log(checkbox.name);
     if (
       stateValue[checkbox.name] &&
       stateValue[checkbox.name].includes(checkbox.value)
@@ -26,10 +26,36 @@ function Form({
     ]);
   };
 
+  const onInputEmail = (input) => {
+    if (isEmailValid(input.value)) {
+      input.style.borderColor = 'green';
+    } else {
+      input.style.borderColor = 'red';
+    }
+  };
+
+  const EMAIL_REGEXP =
+    /^(([^<>()[\].,;:\s@"]+(\.[^<>()[\].,;:\s@"]+)*)|(".+"))@(([^<>()[\].,;:\s@"]+\.)+[^<>()[\].,;:\s@"]{2,})$/iu;
+
+  const isEmailValid = (value) => {
+    return EMAIL_REGEXP.test(value);
+  };
+
   const formChange = (e) => {
     if (e.target.type === 'checkbox' && e.target.name !== 'planduration') {
       addCheckBoxInState(e.target);
       return;
+    }
+
+    switch (e.target.type) {
+      case 'text':
+        break;
+      case 'email':
+        onInputEmail(e.target);
+        break;
+      case 'phone':
+        break;
+      default:
     }
     setStateValue(e.target.name, e.target.value);
   };
@@ -42,7 +68,12 @@ function Form({
     .join('');
 
   return (
-    <form className={classes.Form} onChange={formChange}>
+    <form
+      className={classes.Form}
+      onChange={formChange}
+      id="Form"
+      onSubmit={nextStep}
+    >
       <div>
         {data.inputs.map((e, i) => {
           const nameInput = e.name.split(' ')[0].toLowerCase();
@@ -54,9 +85,7 @@ function Form({
               name={nameOptionsInput}
               nameInput={nameInput}
               selectStepReturn={selectStepReturn}
-              valueInput={
-                stateValue[nameInput] ? stateValue[nameInput] : undefined
-              }
+              valueInput={stateValue[nameInput]}
               valueOptions={
                 stateValue[nameOptionsInput]
                   ? stateValue[nameOptionsInput]
