@@ -26,13 +26,23 @@ function App() {
     setResultForm({ ...newResultForm });
   };
 
-  const prices = {
+  const pricesMonth = {
     Arcade: 9,
     Advanced: 12,
     Pro: 15,
     'Online service': 1,
     'Larger storage': 2,
     'Customizable Profile': 2,
+  };
+
+  const pricesYear = {
+    Arcade: 90,
+    Advanced: 120,
+    Pro: 150,
+    'Online service': 10,
+    'Larger storage': 20,
+    'Customizable Profile': 20,
+    sale: '2 months free',
   };
 
   const steps = [
@@ -65,6 +75,7 @@ function App() {
           type: 'radio',
           name: 'Arcade',
           price: '$9/mo',
+          value: 9,
         },
         { type: 'radio', name: 'Advanced', price: '$12/mo', value: 12 },
         { type: 'radio', name: 'Pro', price: '$15/mo', value: 15 },
@@ -86,16 +97,21 @@ function App() {
         {
           type: 'checkbox',
           name: 'Online service',
+          description: 'Access to multiplayer games',
           price: '+$1/mo',
         },
         {
           type: 'checkbox',
           name: 'Larger storage',
+          description: 'Extra 1TB of cloud save',
+
           price: '+$2/mo',
         },
         {
           type: 'checkbox',
           name: 'Customizable Profile',
+          description: 'Custom theme on your profile',
+
           price: '+$2/mo',
         },
       ],
@@ -128,7 +144,9 @@ function App() {
           currentStep={currentStep}
           stateValue={resultForm}
           setStateValue={setFormHandler}
-          prices={prices}
+          pricesMonth={pricesMonth}
+          pricesYear={pricesYear}
+          selectStepReturn={selectStepHandler}
         />
       </Window>
     </div>

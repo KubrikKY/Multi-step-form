@@ -1,0 +1,33 @@
+@import '../../../../../../index.scss';
+
+.radioButton {
+  display: inline-block;
+  margin-right: 10px;
+  max-width: 90px;
+  width: 100%;
+}
+.radioButton input[type='radio'] {
+  display: none;
+}
+.radioButton label {
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+  padding: 0px 15px;
+  line-height: 34px;
+  border-radius: 6px;
+  user-select: none;
+  border: 1px solid $DiscPlace;
+  transition: border 0.2s linear;
+}
+
+/* Checked */
+.checkRadioLabel {
+  background: $SelectBgr;
+  border: 1px solid $BordersBlue;
+}
+
+/* Hover */
+.radioButton label:hover {
+  border: 1px solid $BordersBlue;
+}

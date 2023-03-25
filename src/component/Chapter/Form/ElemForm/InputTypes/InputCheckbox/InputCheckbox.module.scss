@@ -1,0 +1,35 @@
+@import '../../../../../../index.scss';
+
+.checkbox {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: row;
+  border: 1px solid $DiscPlace;
+  border-radius: 6px;
+  height: 40px;
+  padding: 20px;
+
+  p {
+    margin: 0;
+  }
+
+  .checkboxDisc {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: row;
+    input {
+      margin-right: 20px;
+    }
+  }
+
+  &:hover {
+    border: 1px solid $BordersBlue;
+  }
+}
+
+.checkCheckbox {
+  background: $SelectBgr;
+  border: 1px solid $BordersBlue;
+}

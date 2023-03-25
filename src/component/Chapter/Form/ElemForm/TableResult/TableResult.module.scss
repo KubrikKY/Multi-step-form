@@ -1,0 +1,48 @@
+@import '../../../../../index.scss';
+
+.tableResult {
+  background-color: #f0f0f0;
+  border-radius: 10px;
+  padding: 20px;
+}
+
+.planResult {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid #a5a4a4;
+  button {
+    width: auto;
+  }
+  h2 {
+    color: $TextStep;
+    font-weight: 700;
+  }
+  margin-bottom: 10px;
+}
+
+.addResult {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 5px;
+  p {
+    margin-bottom: 0;
+  }
+  h3 {
+    color: $DiscPlace;
+  }
+}
+
+.columnAdd {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.totalResult {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px;
+}

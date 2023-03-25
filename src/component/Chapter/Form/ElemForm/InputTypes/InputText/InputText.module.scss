@@ -1,0 +1,11 @@
+@import '../../../../../../index.scss';
+
+input[type='text'],
+input[type='phone'],
+input[type='email'] {
+  width: 60%;
+  height: 30px;
+  border: 1px solid $DiscPlace;
+  border-radius: 10px;
+  padding: 10px;
+}

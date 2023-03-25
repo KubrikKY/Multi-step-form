@@ -12,7 +12,9 @@ function Chapter(props) {
         data={selectData}
         setStateValue={props.setStateValue}
         stateValue={props.stateValue}
-        prices={props.prices}
+        pricesMonth={props.pricesMonth}
+        pricesYear={props.pricesYear}
+        selectStepReturn={props.selectStepReturn}
       />
       <div className={classes.navButtons}>
         {props.currentStep !== 0 && (
@@ -23,7 +25,7 @@ function Chapter(props) {
             Go Back
           </button>
         )}
-        {props.currentStep < props.steps.length && (
+        {props.currentStep < props.steps.length - 1 && (
           <button
             onClick={() => props.selectStep(1)}
             className={classes.nextStep}

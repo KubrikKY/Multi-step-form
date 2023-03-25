@@ -1,8 +1,16 @@
 import React from 'react';
 import classes from './Form.module.scss';
 import ElemForm from './ElemForm/ElemForm';
-function Form({ stateValue, setStateValue, data, prices }) {
+function Form({
+  stateValue,
+  setStateValue,
+  data,
+  pricesMonth,
+  pricesYear,
+  selectStepReturn,
+}) {
   const addCheckBoxInState = (checkbox) => {
+    console.log(checkbox.name);
     if (
       stateValue[checkbox.name] &&
       stateValue[checkbox.name].includes(checkbox.value)
@@ -10,10 +18,6 @@ function Form({ stateValue, setStateValue, data, prices }) {
       let newArr = [...stateValue[checkbox.name]];
       newArr.splice(newArr.indexOf(checkbox.value), 1);
       setStateValue(checkbox.name, [...newArr]);
-      return;
-    }
-    if (!stateValue[checkbox.name]) {
-      setStateValue(checkbox.name, [checkbox.value]);
       return;
     }
     setStateValue(checkbox.name, [
@@ -49,6 +53,7 @@ function Form({ stateValue, setStateValue, data, prices }) {
               key={i}
               name={nameOptionsInput}
               nameInput={nameInput}
+              selectStepReturn={selectStepReturn}
               valueInput={
                 stateValue[nameInput] ? stateValue[nameInput] : undefined
               }
@@ -57,7 +62,10 @@ function Form({ stateValue, setStateValue, data, prices }) {
                   ? stateValue[nameOptionsInput]
                   : undefined
               }
-              prices={prices}
+              setStateValue={setStateValue}
+              stateValue={stateValue}
+              pricesMonth={pricesMonth}
+              pricesYear={pricesYear}
             />
           );
         })}
