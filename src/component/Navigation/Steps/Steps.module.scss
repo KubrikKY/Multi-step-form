@@ -8,6 +8,11 @@
   color: #fff;
   width: 80%;
   padding: 20px;
+  cursor: default;
+  @media screen and (max-width: 550px) {
+    width: 15%;
+    padding: 0;
+  }
 }
 
 .stepNum {
@@ -19,6 +24,10 @@
   min-width: 30px;
   height: 30px;
   margin-right: 10px;
+  transition: background-color 0.3s linear;
+  @media screen and (max-width: 550px) {
+    margin-right: 0;
+  }
 }
 
 .stepName {
@@ -26,6 +35,10 @@
   width: 100%;
   span {
     color: $SubText;
+  }
+
+  @media screen and (max-width: 550px) {
+    display: none;
   }
 }
 
@@ -36,7 +49,7 @@
 .visitStep {
   cursor: pointer;
   opacity: 0.9;
-  transition: opacity 0.2s linear;
+  transition: opacity 0.3s linear;
   &:hover {
     opacity: 1;
   }

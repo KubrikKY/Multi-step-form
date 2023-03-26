@@ -18,6 +18,11 @@ function InputCheckbox({
   return (
     <div className={classes.radioButton}>
       <label className={clsRadio.join(' ')}>
+        <img
+          src={input.img}
+          alt={input.name}
+          className={classes.radioImg}
+        ></img>
         {input.name}
         <span>
           {stateValue.planduration === 'Monthly' ? (

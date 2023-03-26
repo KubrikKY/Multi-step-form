@@ -8,4 +8,13 @@
   display: grid;
   grid-template-columns: 40% 60%;
   background-color: $White;
+  @media screen and (max-width: 550px) {
+    background: $Background;
+
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+  }
 }

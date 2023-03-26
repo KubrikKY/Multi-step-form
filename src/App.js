@@ -78,11 +78,25 @@ function App() {
         {
           type: 'radio',
           name: 'Arcade',
+          img: './images/icon-arcade.svg',
           price: '$9/mo',
           value: 9,
         },
-        { type: 'radio', name: 'Advanced', price: '$12/mo', value: 12 },
-        { type: 'radio', name: 'Pro', price: '$15/mo', value: 15 },
+        {
+          type: 'radio',
+          name: 'Advanced',
+          img: './images/icon-advanced.svg',
+          price: '$12/mo',
+          value: 12,
+        },
+        {
+          type: 'radio',
+          name: 'Pro',
+          img: './images/icon-pro.svg',
+
+          price: '$15/mo',
+          value: 15,
+        },
         {
           type: 'switchToggle',
           typeName: 'checkbox',
