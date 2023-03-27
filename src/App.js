@@ -11,8 +11,6 @@ function App() {
   const [visitStep, setVisitStep] = useState([0]);
   const [resultForm, setResultForm] = useState({});
 
-  console.log(resultForm);
-
   const nextStepHandler = (step) => {
     setVisitStep([...visitStep, currentStep + step]);
     setCurrentStep(currentStep + step);
@@ -28,6 +26,10 @@ function App() {
     const newResultForm = { ...resultForm };
     newResultForm[name] = value;
     setResultForm({ ...newResultForm });
+  };
+
+  const sendJson = () => {
+    console.log(JSON.stringify(resultForm));
   };
 
   const pricesMonth = {
@@ -151,6 +153,14 @@ function App() {
         },
       ],
     },
+    {
+      step: 5,
+      name: 'Finish',
+      title: 'Thank you!',
+      description:
+        'Thank for confirming your subscription! We hope you have fun using our platform.',
+      img: './images/icon-thank-you.svg',
+    },
   ];
   return (
     <div className={classes.App}>
@@ -170,6 +180,7 @@ function App() {
           pricesMonth={pricesMonth}
           pricesYear={pricesYear}
           selectStepReturn={selectStepHandler}
+          sendJson={sendJson}
         />
       </Window>
     </div>

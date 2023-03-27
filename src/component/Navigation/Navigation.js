@@ -7,14 +7,16 @@ function Navigation(props) {
     <div className={classes.Navigation}>
       {props.steps.map((e, i) => {
         return (
-          <Steps
-            key={e.step}
-            step={e.step}
-            stepName={e.name}
-            visit={props.visitStep.includes(i) || undefined}
-            selectStep={props.currentStep === i || undefined}
-            setSelectStep={() => props.setSelectStep(i)}
-          />
+          i < props.steps.length - 1 && (
+            <Steps
+              key={e.step}
+              step={e.step}
+              stepName={e.name}
+              visit={props.visitStep.includes(i) || undefined}
+              selectStep={props.currentStep === i || undefined}
+              setSelectStep={() => props.setSelectStep(i)}
+            />
+          )
         );
       })}
     </div>

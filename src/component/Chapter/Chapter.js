@@ -10,7 +10,7 @@ function Chapter(props) {
     props.selectStep(1);
   };
 
-  return (
+  return props.currentStep < props.steps.length - 1 ? (
     <div className={classes.Chapter}>
       <h1>{selectData.title}</h1>
       {!!selectData.description && <p>{selectData.description}</p>}
@@ -32,7 +32,7 @@ function Chapter(props) {
             Go Back
           </button>
         )}
-        {props.currentStep < props.steps.length - 1 && (
+        {props.currentStep < props.steps.length - 2 && (
           <input
             type="submit"
             form="Form"
@@ -40,6 +40,25 @@ function Chapter(props) {
             value="Next Step"
           ></input>
         )}
+        {props.currentStep === props.steps.length - 2 && (
+          <input
+            type="submit"
+            form="Form"
+            className={classes.nextStep}
+            value="Submit"
+            onClick={props.sendJson}
+          ></input>
+        )}
+      </div>
+    </div>
+  ) : (
+    <div className={classes.Chapter}>
+      <div className={classes.Finish}>
+        <div className={classes.Thank}>
+          <img src={selectData.img} alt={selectData.name} />
+          <h1>{selectData.title}</h1>
+          <p>{selectData.description}</p>
+        </div>
       </div>
     </div>
   );

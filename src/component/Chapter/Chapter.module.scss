@@ -56,3 +56,27 @@
     }
   }
 }
+
+.Finish {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  .Thank {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    height: 200px;
+    width: 100%;
+    max-width: 300px;
+    h1 {
+      color: $TextStep;
+    }
+    p {
+      color: $DiscPlace;
+    }
+  }
+}
